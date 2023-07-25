@@ -26,7 +26,6 @@ def test_data
   subscription_tea_3 = SubscriptionTea.create!(subscription_id: subscription_2.id, tea_id: tea_3.id)
   subscription_tea_4 = SubscriptionTea.create!(subscription_id: subscription_2.id, tea_id: tea_4.id)
   subscription_tea_5 = SubscriptionTea.create!(subscription_id: subscription_2.id, tea_id: tea_5.id)
-  subscription_tea_6 = SubscriptionTea.create!(subscription_id: subscription_2.id, tea_id: tea_6.id)
   subscription_tea_7 = SubscriptionTea.create!(subscription_id: subscription_3.id, tea_id: tea_7.id)
   subscription_tea_8 = SubscriptionTea.create!(subscription_id: subscription_3.id, tea_id: tea_8.id)
   subscription_tea_9 = SubscriptionTea.create!(subscription_id: subscription_4.id, tea_id: tea_9.id)

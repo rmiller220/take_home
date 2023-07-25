@@ -217,6 +217,7 @@ DEPENDENCIES
   debug
   factory_bot_rails
   faker
+  pry
   pry-byebug
   pry-rails
   puma (~> 5.0)
