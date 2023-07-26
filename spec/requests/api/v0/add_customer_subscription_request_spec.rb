@@ -12,8 +12,8 @@ RSpec.describe 'Add a customer subscription API' do
       @tea_6 = Tea.create!(title: 'Chai', description: 'Chai Tea', temperature: "190", brew_time: "4-6 minutes")
       @tea_7 = Tea.create!(title: 'Matcha', description: 'Matcha Tea', temperature: "180", brew_time: "10-15 minutes")
       @tea_8 = Tea.create!(title: 'Rooibos', description: 'Rooibos Tea', temperature: "180", brew_time: "5-10 minutes")
-      @tea_9 = Tea.create!(title: 'Matcha', description: 'Sleepy Tea', temperature: "200", brew_time: "5-10 minutes")
-      @tea_10 = Tea.create!(title: 'Matcha', description: 'Throat Soothing Tea', temperature: "250", brew_time: "5-10 minutes")
+      @tea_9 = Tea.create!(title: 'SleepyTime', description: 'Sleepy Tea', temperature: "200", brew_time: "5-10 minutes")
+      @tea_10 = Tea.create!(title: 'ThroatCoat', description: 'Throat Soothing Tea', temperature: "250", brew_time: "5-10 minutes")
 
     end
     it 'creates a new subscription for a customer' do
