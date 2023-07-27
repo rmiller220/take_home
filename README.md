@@ -1,6 +1,6 @@
 # Tea Service Subscription API
 
-**Tea Service** is a backend application designed to store and display all the data from the tea subscription service. It allows the front end team to access this data and display it to the user. There are currently three endpoints in this API. The first is a ```GET``` request that displays all of a given users tea subscriptions, both active and cancelled. The second endpoint is a ```POST``` request that allows a user to create a new subscription by subscribing to a tea of their choosing. The final endpoint is a ```DELETE``` request that allows a user to cancel any of their active subscriptions. 
+**Tea Service** is a backend application designed to store and display all the data from the tea subscription service. It allows the front end team to access this data and display it to the user. There are currently three endpoints in this API. The first is a ```GET``` request that displays all of a given users tea subscriptions, both active and cancelled. The second endpoint is a ```POST``` request that allows a user to create a new subscription by subscribing to a tea of their choosing. The final endpoint is a ```PATCH``` request that allows a user to cancel any of their active subscriptions. 
 
 ## Technologies Used
 * ![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white)
@@ -33,22 +33,105 @@ rails db:{drop,create,migrate,seed}
 ```
 bundle exec rspec
 ```
+6. To access the data from another source, you must have the local server running by using the command ```rails s``` in your terminal.
 
 ## Database
 **Here is a diagram of the tables in the database and their relationships to one another:**
 <br><br>
 ![Schema](app/images/schema.png)
 
-* Configuration
 
-* Database creation
+## Endpoints Used
 
-* Database initialization
+<div style="overflow: auto; height: 200px;">
+  <pre>
+    <code>
+      GET '/subscriptions' - All of a Customers Subscriptions (active and cancelled)
+      POST '/subscribe' - Add a new subscription for a Customer
+      PATCH '/unsubscribe' - Cancel a Customer Subscription
+    </code>
+  </pre>
+</div>
+<br>
+**Responses**
 
-* How to run the test suite
+<div style="overflow: auto; height: 200px;">
+  <pre>
+    <code>
 
-* Services (job queues, cache servers, search engines, etc.)
+      All Customer Subscriptions
+      http://localhost:3000/subscriptions
 
-* Deployment instructions
+      {
+        "data": [
+        {
+            "id": "1",
+            "type": "subscription",
+            "attributes": {
+                "customer_id": 1,
+                "tea_id": 1,
+                "frequency": "weekly",
+                "title": "Weekly",
+                "price": "10.0",
+                "status": "active"
+            }
+        },
+        {
+            "id": "2",
+            "type": "subscription",
+            "attributes": {
+                "customer_id": 1,
+                "tea_id": 2,
+                "frequency": "monthly",
+                "title": "Monthly",
+                "price": "30.0",
+                "status": "active"
+            }
+        },
+        ....
+        ]
+      }
+---
 
-* ...
+    Create a new Subscription
+    http://localhost:3000/subscribe
+
+    {
+      "data": {
+        "id": "9",
+        "type": "subscription",
+        "attributes": {
+            "customer_id": 1,
+            "tea_id": 6,
+            "frequency": "weekly",
+            "title": "Green",
+            "price": "10.00",
+            "status": "active"
+        }
+      }
+    }
+---
+
+    Cancel a Customer's Subscription
+    http://localhost:3000/unsubscribe
+
+    {
+    "message": "Subscription is cancelled",
+    "subscription": {
+        "data": {
+            "id": "10",
+            "type": "subscription",
+            "attributes": {
+                "customer_id": 1,
+                "tea_id": 8,
+                "frequency": "weekly",
+                "title": "Matcha",
+                "price": "15.00",
+                "status": "cancelled"
+            }
+        }
+    }
+}
+  </code>
+ </pre>
+</div>
