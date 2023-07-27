@@ -1,7 +1,6 @@
 class Api::V0::SubscriptionsController < ApplicationController
 
   def create
-    # require 'pry'; binding.pry
     subscription = Subscription.new(subscription_params)
     if subscription.save
       render json: SubscriptionSerializer.new(subscription), status: 201
