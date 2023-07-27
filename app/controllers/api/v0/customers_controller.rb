@@ -10,7 +10,6 @@ class Api::V0::CustomersController < ApplicationController
   end
 
   def destroy
-    # require 'pry'; binding.pry
     if Customer.exists?(params[:id])
       @customer = Customer.find(params[:id])
       if Subscription.exists?(params[:subscription_id])
