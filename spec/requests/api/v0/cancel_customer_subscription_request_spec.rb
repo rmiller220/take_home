@@ -11,6 +11,7 @@ RSpec.describe 'Delete a customer subscription API' do
       @subscription_2 = Subscription.create!(id: 2, title: 'Monthly', price: 30.00, status: "active", frequency: "monthly", customer_id: @customer_1.id, tea_id: @tea_2.id)
       @subscription_3 = Subscription.create!(id: 3, title: 'Monthly', price: 50.00, status: "canceled", frequency: "monthly", customer_id: @customer_1.id, tea_id: @tea_3.id)
     end
+    
     it 'cancels a customer subscription' do
       patch '/api/v0/unsubscribe', params: { id: 1, subscription_id: @subscription_1.id }
 
